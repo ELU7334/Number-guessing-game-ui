@@ -37,6 +37,24 @@ public class NumberGuessingGame : MonoBehaviour
         StartGame();
          }
     }
+   public void OnPressHigher()
+   {
+     minValue = guess; 
+          guess = (maxValue + minValue) / 2;
+          Debug.Log("Is it higher or lower than: " + guess);
+   }
+
+   public void OnPressLower()
+{
+maxValue = guess;
+        guess = (maxValue) / 2;
+        Debug.Log("Is it higher or lower than : " + guess);
+}
+
+public void NextGuess()
+{
+
+}
 
     void StartGame()
        {
@@ -44,11 +62,7 @@ public class NumberGuessingGame : MonoBehaviour
         minValue = 1;
         maxValue = 10;
 
-        Debug.Log("Welcome to our Number Guessing Game.");
-        Debug.Log("The number range is from " + minValue +" and" + maxValue);
-        Debug.Log("guess a number between the range. ");
-        Debug.Log("tell me if your number is higher or lower that:" + guess + "?");
-        Debug.Log("push up arrow = Higher, Push Down Arrow = Lower, Push Enter = Correct");
-        maxValue = maxValue + 1;
+        
+        
        }
 }
