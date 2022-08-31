@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NumberGuessingGame : MonoBehaviour
 {
-       int guess = 5;
-    int minValue = 1;
-    int maxValue = 10;
+    
+    int minValue;
+    int maxValue;
+     private TextMeshProUGUI guessText;
+     int guess;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,30 +43,26 @@ public class NumberGuessingGame : MonoBehaviour
     }
    public void OnPressHigher()
    {
-     minValue = guess; 
-          guess = (maxValue + minValue) / 2;
-          Debug.Log("Is it higher or lower than: " + guess);
+     minValue = guess + 1; 
+          NextGuess();
    }
 
    public void OnPressLower()
 {
-maxValue = guess;
-        guess = (maxValue) / 2;
-        Debug.Log("Is it higher or lower than : " + guess);
+       maxValue = guess - 1;
+       NextGuess();
+        // code
 }
 
 public void NextGuess()
 {
-
+  guess = Random.Range(minValue, maxValue + 1);
+  guessText.text = guess.ToString();
 }
 
     void StartGame()
        {
-        guess =5;
-        minValue = 1;
-        maxValue = 10;
+        NextGuess();
 
-        
-        
        }
 }
